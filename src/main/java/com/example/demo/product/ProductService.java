@@ -25,7 +25,7 @@ public class ProductService {
         throw new ProductSearchNotFoundException(searchString);
     }
 
-    public ProductEntity findById(String id) {
+    public ProductEntity getProductById(String id) {
 
         Optional<ProductEntity> productOpt = productRepository.findById(id);
 

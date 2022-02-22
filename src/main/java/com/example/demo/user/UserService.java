@@ -21,4 +21,12 @@ public class UserService {
         throw new UserNotFoundException(id);
     }
 
+    public UserEntity getUserById(String id) {
+        Optional<UserEntity> userOpt = userRepository.findById(id);
+
+        if (userOpt.isPresent()) {
+            return userOpt.get();
+        }
+        throw new UserNotFoundException(id);
+    }
 }

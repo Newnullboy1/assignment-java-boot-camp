@@ -1,11 +1,14 @@
 package com.example.demo.product;
 
 import com.example.demo.BaseEntity;
+import com.example.demo.order.OrderEntity;
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -26,6 +29,9 @@ public class ProductEntity extends BaseEntity {
 
     @Column
     private String photoPath;
+
+    @OneToMany(mappedBy = "product", orphanRemoval = true)
+    private List<OrderEntity> orders;
 
     @Override
     public boolean equals(Object o) {
