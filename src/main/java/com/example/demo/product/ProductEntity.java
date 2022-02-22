@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.product;
 
+import com.example.demo.BaseEntity;
 import lombok.*;
 import org.hibernate.Hibernate;
 

@@ -1,12 +1,10 @@
-package com.example.demo;
+package com.example.demo.product;
 
-import lombok.Data;
+import com.example.demo.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import java.time.LocalDateTime;
 
 @RestControllerAdvice
 public class ProductControllerAdvice {
@@ -29,14 +27,5 @@ public class ProductControllerAdvice {
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 
-    @Data
-    public static class ErrorResponse {
 
-        private LocalDateTime timestamp = LocalDateTime.now();
-
-        private int status;
-
-        private String error;
-
-    }
 }

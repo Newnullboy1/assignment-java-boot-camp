@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ public class ProductService {
 
         Optional<ProductEntity> productOpt = productRepository.findById(id);
 
-        if (productOpt.isPresent()){
+        if (productOpt.isPresent()) {
             return productOpt.get();
         }
         throw new ProductNotFoundException(id);

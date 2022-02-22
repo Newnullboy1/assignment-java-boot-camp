@@ -1,24 +1,26 @@
-package com.example.demo;
+package com.example.demo.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-public class Controller {
+@RequestMapping("/product")
+public class ProductController {
 
     @Autowired
     ProductService productService;
 
-    @GetMapping("/product/search/{searchString}")
+    @GetMapping("/search/{searchString}")
     public List<ProductEntity> searchProduct(@PathVariable String searchString) {
         return productService.searchProduct(searchString);
     }
 
-    @GetMapping("/product/get/{id}")
+    @GetMapping("/get/{id}")
     public ProductEntity getProductById(@PathVariable String id) {
         return productService.findById(id);
     }
