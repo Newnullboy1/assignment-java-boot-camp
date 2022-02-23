@@ -14,7 +14,7 @@ public class OrderController {
     OrderService orderService;
 
     @PostMapping("/create")
-    public OrderResponseModel createOrder(@RequestBody OrderCreateRequestModel request) {
+    public OrderEntity createOrder(@RequestBody OrderCreateRequestModel request) {
         return orderService.create(request);
     }
 

@@ -23,6 +23,9 @@ import java.util.Objects;
 public class OrderEntity extends BaseEntity {
 
     @Column
+    private double totalPrice;
+
+    @Column
     private String paymentMethod;
 
     @ManyToOne

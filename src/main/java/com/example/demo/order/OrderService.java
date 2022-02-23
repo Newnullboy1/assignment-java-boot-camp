@@ -4,10 +4,12 @@ import com.example.demo.product.ProductEntity;
 import com.example.demo.product.ProductService;
 import com.example.demo.user.UserEntity;
 import com.example.demo.user.UserService;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Setter
 public class OrderService {
 
     @Autowired
@@ -19,9 +21,8 @@ public class OrderService {
     @Autowired
     ProductService productService;
 
-    public OrderResponseModel create(OrderCreateRequestModel request) {
+    public OrderEntity create(OrderCreateRequestModel request) {
         OrderEntity order = new OrderEntity();
-        OrderResponseModel response = new OrderResponseModel();
         UserEntity user = userService.getUserById(request.getUserId());
         ProductEntity product = productService.getProductById(request.getProductId());
 
@@ -29,12 +30,6 @@ public class OrderService {
         order.setUser(user);
         order.setPaymentMethod(request.getPaymentMethod());
 
-        OrderEntity newOrder = orderRepository.save(order);
-
-        response.setOrderId(newOrder.getId());
-        response.setTotalPrice(newOrder.getProduct().getPrice());
-        response.setUserName(newOrder.getUser().getName());
-
-        return response;
+        return orderRepository.save(order);
     }
 }
