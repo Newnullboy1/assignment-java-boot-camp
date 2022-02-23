@@ -1,5 +1,6 @@
 package com.example.demo.product;
 
+import com.example.demo.UtilTestData;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ class ProductControllerTest {
     @DisplayName("ส่ง search string = nike แล้วจะได้รับการตอบกลับ product count = 3 ")
     void searchProduct() {
 
-        List<ProductEntity> products = utilTestData.genProductMockData();
+        List<ProductEntity> products = utilTestData.generateProductMockData();
 
         ProductListResponse productsResponse = new ProductListResponse();
         productsResponse.setProducts(products);
@@ -44,7 +45,7 @@ class ProductControllerTest {
     @DisplayName("ส่ง product id = 0 จะได้รับการตอบกลับ product name = nike0")
     void getProductById() {
 
-        List<ProductEntity> products = utilTestData.genProductMockData();
+        List<ProductEntity> products = utilTestData.generateProductMockData();
 
         ProductEntity product = products.get(0);
 

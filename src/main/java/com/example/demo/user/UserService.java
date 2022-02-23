@@ -1,11 +1,13 @@
 package com.example.demo.user;
 
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@Setter
 public class UserService {
 
     @Autowired

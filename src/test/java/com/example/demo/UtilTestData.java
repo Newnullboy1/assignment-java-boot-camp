@@ -1,6 +1,7 @@
-package com.example.demo.product;
+package com.example.demo;
 
-import lombok.Setter;
+import com.example.demo.product.ProductEntity;
+import com.example.demo.user.UserEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.List;
 @Service
 public class UtilTestData {
 
-    public List<ProductEntity> genProductMockData() {
+    public List<ProductEntity> generateProductMockData() {
         List<ProductEntity> products = new ArrayList<>();
 
         for (int i = 0; i < 3; i++) {
@@ -24,4 +25,13 @@ public class UtilTestData {
         return products;
     }
 
+    public UserEntity generateUserMockData() {
+
+        UserEntity user = new UserEntity();
+        user.setId("0");
+        user.setName("User0");
+        user.setAddress("Address0");
+
+        return user;
+    }
 }

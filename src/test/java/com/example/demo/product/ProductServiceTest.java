@@ -1,5 +1,6 @@
 package com.example.demo.product;
 
+import com.example.demo.UtilTestData;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -22,7 +23,7 @@ class ProductServiceTest {
     @Test
     void searchProductSuccess() {
 
-        List<ProductEntity> products = utilTestData.genProductMockData();
+        List<ProductEntity> products = utilTestData.generateProductMockData();
         when(productRepository.findByNameLike("%nike%")).thenReturn(products);
 
         ProductService productService = new ProductService();
@@ -36,7 +37,7 @@ class ProductServiceTest {
     @Test
     void getProductByIdSuccess() {
 
-        ProductEntity product = utilTestData.genProductMockData().get(0);
+        ProductEntity product = utilTestData.generateProductMockData().get(0);
         when(productRepository.findById("0")).thenReturn(Optional.of(product));
 
         ProductService productService = new ProductService();

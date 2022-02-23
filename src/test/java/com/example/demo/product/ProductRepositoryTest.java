@@ -1,5 +1,6 @@
 package com.example.demo.product;
 
+import com.example.demo.UtilTestData;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -17,7 +18,7 @@ class ProductRepositoryTest {
 
     @Test
     void findByNameLike_with_success() {
-        List<ProductEntity> products = utilTestData.genProductMockData();
+        List<ProductEntity> products = utilTestData.generateProductMockData();
         productRepository.saveAll(products);
 
         List<ProductEntity> result = productRepository.findByNameLike("%nike%");
