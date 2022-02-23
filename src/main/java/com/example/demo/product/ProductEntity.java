@@ -31,6 +31,7 @@ public class ProductEntity extends BaseEntity {
     private String photoPath;
 
     @OneToMany(mappedBy = "product", orphanRemoval = true)
+    @ToString.Exclude
     private List<OrderEntity> orders;
 
     @Override

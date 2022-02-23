@@ -16,7 +16,7 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping("/search/{searchString}")
-    public List<ProductEntity> searchProduct(@PathVariable String searchString) {
+    public ProductListResponse searchProduct(@PathVariable String searchString) {
         return productService.searchProduct(searchString);
     }
 
